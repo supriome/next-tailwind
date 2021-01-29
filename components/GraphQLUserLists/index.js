@@ -1,4 +1,4 @@
-import useSwr from "swr";
+import useSWR from "swr";
 
 const fetcher = (query) => 
     fetch('/api/graphql', {
@@ -13,7 +13,7 @@ const fetcher = (query) =>
 
 
 export default function GraphQLUserLists() {
-    const { data, error } = useSwr('{users { name }}', fetcher)
+    const { data, error } = useSWR('{users { name }}', fetcher)
 
     if(error) return <div>Failed to load</div>
     if(!data) return <div>Loading...</div>
