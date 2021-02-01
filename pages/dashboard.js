@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import Router from "next/router";
 
-import Nav from "../components/nav";
+import Nav from "../components/Nav";
 
 import useUser from "../mocks/use-user";
 import { logout } from "../libs/auth";
