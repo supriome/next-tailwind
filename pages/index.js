@@ -3,6 +3,7 @@ import UserLists from "../components/UserLists";
 import GraphQLUserLists from "../components/GraphQLUserLists";
 import Cookie from "../components/Cookie";
 import People from "../components/People";
+import SWR from "../components/SWR";
 import Cors from '../components/Cors'
 import styles from '../styles/Home.module.css'
 import Link from 'next/link'
@@ -16,28 +17,38 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          <Link href="/login" as="/login">
-            <a>Login Page</a>
-          </Link>
-        </h1>
-
         <div className="md:flex">
+          <p className="ml-2">
+            <Link href="/login" as="/login">
+              <a>{"Login Page".toUpperCase()}</a>
+            </Link>
+          </p>
+          <p className="ml-2">
+            <Link href="/infiniteloading" as="/infiniteloading">
+              <a>{"infiniteloading".toUpperCase()}</a>
+            </Link>
+          </p>
+        </div>
+        
+
+        <div className="md:flex mt-2">
           <People />
         </div>
 
-        <div className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl my-2">
+        <div className="max-w-md mx-auto rounded-xl shadow-lg overflow-hidden md:max-w-2xl my-4">
           <div className="md:flex md:flex-col">
             <div className="p-8">
-              <p className="mt-2 text-gray-500">
+              {/* <p className="mt-2 text-gray-500">
                 <Cookie />
-              </p>
+              </p> */}
+              <div className="mt-2 text-gray-500">
+                <SWR />
+              </div>
             </div>
           </div>
         </div>
 
         <div className={styles.grid}>
-
           <div className={styles.card}>
             <Cors />
           </div>
@@ -47,7 +58,6 @@ export default function Home() {
           <div className={styles.card}>
             <GraphQLUserLists />
           </div>
-           
           <div className={styles.card}>
             <GraphQLUserLists />
           </div>

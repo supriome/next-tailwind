@@ -5,9 +5,9 @@ const fetcher = (url) => fetch(url).then((res) => res.json())
 
 const Person =  ({ person }) => {
   return (
-    <li>
+    <li className="ml-2 mr-2">
       <Link href="/person/[id]" as={`/person/${person.id}`}>
-        <a>{person.name}</a>
+        <a>{person.name.toUpperCase()}</a>
       </Link>
     </li>
   )
@@ -20,7 +20,7 @@ export default function Index() {
   if (!data) return <div>Loading...</div>
 
   return (
-    <ul>
+    <ul className="md:flex">
       {data.map((p, i) => (
         <Person key={i} person={p} />
       ))}
